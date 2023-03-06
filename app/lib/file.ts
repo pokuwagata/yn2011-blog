@@ -35,24 +35,31 @@ export function getFiles() {
     });
 }
 
-export function getFile(slug: string): {
+export async function getFile(slug: string): Promise<{
   slug: string;
   data?: metadata;
-  content?: string;
+  source?: string;
   error?: unknown;
-} {
+}> {
   const filePath = path.join(directoryPath, slug + ".mdx");
 
   try {
+    const source = fs.readFileSync(filePath, { encoding: "utf8" });
     const { data, content } = matter(
       fs.readFileSync(filePath, { encoding: "utf8" })
     );
+
+    if (!(data.title && data.date)) {
+      throw new Error(`${filePath} is wrong:` + JSON.stringify(data));
+    }
+
     return {
       slug,
       data: { title: data.title, date: data.date.toISOString().split("T")[0] },
-      content,
+      source: content,
     };
   } catch (e) {
+    console.error(e);
     return {
       slug,
       error: e,

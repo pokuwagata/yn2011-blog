@@ -1,9 +1,14 @@
 import { getFiles, getFile } from "@/app/lib/file";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
-export function generateMetadata({ params }: any) {
-  const { data } = getFile(params.slug);
+const components = {
+  img: (props) => <Image {...props} width={100} height={100} />,
+};
+
+export async function generateMetadata({ params }: any) {
+  const { data } = await getFile(params.slug);
 
   return {
     title: data?.title ?? "not found",
@@ -20,20 +25,21 @@ export async function generateStaticParams() {
   return posts;
 }
 
-export default function Page({ params }: any) {
-  const { data, content } = getFile(params.slug);
+export default async function Page({ params }: any) {
+  const { data, source } = await getFile(params.slug);
 
-  if (!data) {
+  if (!data || !source) {
     notFound();
   }
 
   const date = data.date;
+  console.log({ source });
 
   return (
     <>
       <time>{date}</time>
       {/* @ts-ignore */}
-      <MDXRemote source={content} />;
+      <MDXRemote source={source} components={components} />;
     </>
   );
 }
