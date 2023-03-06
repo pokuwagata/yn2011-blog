@@ -35,16 +35,15 @@ export function getFiles() {
     });
 }
 
-export async function getFile(slug: string): Promise<{
+export function getFile(slug: string): {
   slug: string;
   data?: metadata;
-  source?: string;
+  content?: string;
   error?: unknown;
-}> {
+} {
   const filePath = path.join(directoryPath, slug + ".mdx");
 
   try {
-    const source = fs.readFileSync(filePath, { encoding: "utf8" });
     const { data, content } = matter(
       fs.readFileSync(filePath, { encoding: "utf8" })
     );
@@ -56,7 +55,7 @@ export async function getFile(slug: string): Promise<{
     return {
       slug,
       data: { title: data.title, date: data.date.toISOString().split("T")[0] },
-      source: content,
+      content,
     };
   } catch (e) {
     console.error(e);

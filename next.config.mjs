@@ -1,21 +1,22 @@
 /** @type {import('next').NextConfig} */
 import addMdx from "@next/mdx";
-
-addMdx(nextConfig, {
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-    // If you use `MDXProvider`, uncomment the following line.
-    // providerImportSource: "@mdx-js/react",
-  },
-});
+import imgSize from "./app/lib/imgSize.mjs";
 
 const nextConfig = {
+  pageExtensions: ["ts", "tsx", "js", "jsx", "mdx"],
   experimental: {
     appDir: true,
     mdxRs: true,
   },
 };
 
-const withMDX = require("@next/mdx")();
-module.exports = withMDX(nextConfig);
+addMdx(nextConfig, {
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [imgSize],
+    // If you use `MDXProvider`, uncomment the following line.
+    // providerImportSource: "@mdx-js/react",
+  },
+});
+
+export default nextConfig;
