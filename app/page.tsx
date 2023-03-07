@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getFiles, getFile, metadata } from "@/app/lib/file";
-import Test from "@/articles/test.mdx";
 
 type Post = { slug: string; data: metadata; content: string };
 
@@ -26,7 +25,6 @@ export default function Page() {
 
   return (
     <main>
-      <Test />
       <ul>
         {posts.map((post) => {
           const { date, title } = post.data;

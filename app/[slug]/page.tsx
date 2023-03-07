@@ -1,17 +1,31 @@
 import { getFiles, getFile } from "@/app/lib/file";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
-import Image from "next/image";
+import { baseURL, siteName } from "@/app/const";
 
-const components = {
-  // img: (props) => <Image {...props} width={100} height={100} />,
-};
+const components = {};
 
-export async function generateMetadata({ params }: any) {
-  const { data } = await getFile(params.slug);
+export function generateMetadata({ params }: any) {
+  const slug = params.slug;
+  const { data } = getFile(slug);
+  const title = data?.title ?? "not found";
 
   return {
-    title: data?.title ?? "not found",
+    title,
+    openGraph: {
+      title,
+      url: `${baseURL}${slug}/`,
+      siteName,
+      images: [
+        {
+          url: "https://nextjs.org/og.png",
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: "ja_JP",
+      type: "article",
+    },
   };
 }
 
