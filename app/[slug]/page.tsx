@@ -18,7 +18,7 @@ export function generateMetadata({ params }: any) {
       siteName,
       images: [
         {
-          url: "https://nextjs.org/og.png",
+          url: `${baseURL}api/og?title=${encodeURIComponent(title)}`,
           width: 1200,
           height: 630,
         },
