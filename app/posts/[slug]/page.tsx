@@ -14,11 +14,11 @@ export function generateMetadata({ params }: any) {
     title,
     openGraph: {
       title,
-      url: `${baseURL}posts/${slug}/`,
+      url: `${baseURL}/posts/${slug}/`,
       siteName,
       images: [
         {
-          url: `${baseURL}api/og?title=${encodeURIComponent(title)}`,
+          url: `${baseURL}/api/og?title=${encodeURIComponent(title)}`,
           width: 1200,
           height: 630,
         },
