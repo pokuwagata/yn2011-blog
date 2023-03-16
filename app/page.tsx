@@ -33,7 +33,9 @@ export default function Page() {
               <p>
                 <time>{date}</time>
               </p>
-              <Link href={`/${encodeURIComponent(post.slug)}`}>{title}</Link>
+              <Link href={`/posts/${encodeURIComponent(post.slug)}`}>
+                {title}
+              </Link>
             </li>
           );
         })}

@@ -14,7 +14,7 @@ export function generateMetadata({ params }: any) {
     title,
     openGraph: {
       title,
-      url: `${baseURL}${slug}/`,
+      url: `${baseURL}posts/${slug}/`,
       siteName,
       images: [
         {
@@ -39,8 +39,8 @@ export async function generateStaticParams() {
   return posts;
 }
 
-export default async function Page({ params }: any) {
-  const { data, content } = await getFile(params.slug);
+export default function Page({ params }: any) {
+  const { data, content } = getFile(params.slug);
 
   if (!data || !content) {
     notFound();

@@ -7,7 +7,7 @@ export type metadata = {
   date: string;
 };
 
-const directoryPath = path.join(process.cwd(), "articles");
+const directoryPath = path.join(process.cwd(), "posts");
 
 function findFileTitle(fileName: string) {
   return fileName.match(/^(.+)\.mdx$/);
