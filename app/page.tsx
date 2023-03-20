@@ -1,16 +1,5 @@
 import Link from "next/link";
-import { getFiles, getFile, metadata } from "@/app/lib/file";
-
-type Post = { slug: string; data: metadata; content: string };
-
-function getPosts() {
-  return getFiles()
-    .map((file) => file.slug)
-    .map((slug) => {
-      return getFile(slug);
-    })
-    .filter((post): post is Post => !!post.data && !!post.content);
-}
+import { getPosts } from "@/app/lib/post";
 
 export default function Page() {
   const posts = getPosts();
