@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { baseURL, siteName } from "@/app/const";
+import "@/app/globals.css";
 
 export const metadata = {
   title: {
@@ -32,12 +33,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header>
-          <h1>
-            <Link href="/">yn2011&apos;s blog</Link>
-          </h1>
-        </header>
-        {children}
+        <div className="mx-auto max-w-[960px] px-4">
+          <header className="my-5">
+            <h1 className="text-3xl font-bold">
+              <Link href="/">yn2011&apos;s blog</Link>
+            </h1>
+          </header>
+          {children}
+        </div>
       </body>
     </html>
   );
