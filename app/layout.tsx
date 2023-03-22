@@ -32,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gray-800 text-white">
         <div className="mx-auto max-w-[960px] px-4">
           <header className="my-5">
             <h1 className="text-3xl font-bold">

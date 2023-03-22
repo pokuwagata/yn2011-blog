@@ -18,11 +18,14 @@ export default function Page() {
         {posts.map((post) => {
           const { date, title } = post.data;
           return (
-            <li key={post.slug}>
-              <p>
-                <time>{date}</time>
+            <li className="mb-3" key={post.slug}>
+              <p className="mb-1">
+                <time className="text-gray-400">{date}</time>
               </p>
-              <Link href={`/posts/${encodeURIComponent(post.slug)}`}>
+              <Link
+                className="text-lg text-pink-300 visited:text-pink-700 underline"
+                href={`/posts/${encodeURIComponent(post.slug)}`}
+              >
                 {title}
               </Link>
             </li>
