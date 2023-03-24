@@ -2,6 +2,7 @@ import { getFiles, getFile } from "@/app/lib/file";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { baseURL, siteName } from "@/app/const";
+import Image from "next/image";
 
 export function generateMetadata({ params }: any) {
   const slug = params.slug;
@@ -38,6 +39,7 @@ export async function generateStaticParams() {
 }
 
 const components = {
+  Image,
   h1: (props: React.ComponentProps<"h1">) => (
     <h1 className="text-2xl font-bold mb-3" {...props} />
   ),
