@@ -8,3 +8,18 @@ date: 2023-03-01
 ## 見出し
 
 本文
+
+<Code lang="typescript" code={
+`"use client";
+
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { ocean } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+
+export function Code({ lang, children }: { lang: string; children: string }) {
+  return (
+    <SyntaxHighlighter language={lang} style={ocean}>
+      {children}
+    </SyntaxHighlighter>
+  );
+}
+`} />
