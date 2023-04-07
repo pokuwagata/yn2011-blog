@@ -1,9 +1,9 @@
-import { getFiles, getFile } from "@/app/lib/file";
+import { getFiles, getFile } from "@/lib/file";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { baseURL, siteName } from "@/app/const";
 import Image from "next/image";
-import { Code } from "@/app/components/Code";
+import { Code } from "@/components/Code";
 
 export function generateMetadata({ params }: any) {
   const slug = params.slug;

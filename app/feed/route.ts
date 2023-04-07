@@ -1,4 +1,4 @@
-import { generateFeed } from "@/app/lib/rss";
+import { generateFeed } from "@/lib/rss";
 
 export async function GET() {
   const xml = await generateFeed();

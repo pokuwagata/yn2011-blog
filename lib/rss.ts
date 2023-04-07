@@ -1,7 +1,7 @@
 import { Feed } from "feed";
 import { siteName } from "@/app/const";
 import { baseURL } from "@/app/const";
-import { getPosts } from "@/app/lib/post";
+import { getPosts } from "@/lib/post";
 
 export const generateFeed = async () => {
   const feed = new Feed({

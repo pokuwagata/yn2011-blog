@@ -1,4 +1,4 @@
-import { getFiles, getFile, metadata } from "@/app/lib/file";
+import { getFiles, getFile, metadata } from "@/lib/file";
 
 export type Post = { slug: string; data: metadata; content: string };
 
