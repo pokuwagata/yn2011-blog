@@ -35,7 +35,7 @@ export default function RootLayout({
       <body className="bg-gray-800 text-white">
         <div className="mx-auto max-w-[960px] px-4">
           <header className="my-5">
-            <h1 className="text-3xl font-bold">
+            <h1 className="text-xl font-bold">
               <Link href="/">yn2011&apos;s blog</Link>
             </h1>
           </header>
