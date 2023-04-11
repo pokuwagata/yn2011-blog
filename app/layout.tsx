@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className="bg-gray-800 text-white">
         <div className="mx-auto max-w-[960px] px-4 flex flex-col h-screen">
           <div className="mb-10 flex-1">
