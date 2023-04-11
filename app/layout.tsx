@@ -4,8 +4,8 @@ import "@/app/globals.css";
 
 export const metadata = {
   title: {
-    default: "yn2011's blog",
-    template: "%s | yn2011's blog",
+    default: siteName,
+    template: `%s | ${siteName}`,
   },
   description: "yn2011 の技術ブログ",
   openGraph: {
@@ -13,7 +13,7 @@ export const metadata = {
     url: baseURL,
     images: [
       {
-        url: "https://nextjs.org/og.png",
+        url: `${baseURL}/api/og?title=${encodeURIComponent(siteName)}`,
         width: 1200,
         height: 630,
       },
