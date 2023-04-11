@@ -57,7 +57,7 @@ export default function Page({ params }: any) {
 
   return (
     <>
-      <p className="mb-3">
+      <p>
         <time className="text-gray-400 ">{date}</time>
       </p>
       {/* @ts-ignore */}

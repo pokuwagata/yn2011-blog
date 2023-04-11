@@ -6,4 +6,7 @@
   li > ul {
     @apply pl-6;
   }
+  img {
+    @apply my-6;
+  }
 }
