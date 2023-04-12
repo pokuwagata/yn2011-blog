@@ -33,8 +33,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="bg-gray-800 text-white">
-        <div className="mx-auto max-w-[960px] px-4 flex flex-col h-screen">
-          <div className="mb-10 flex-1">
+        <div className="mx-auto max-w-[960px] px-4 flex flex-col min-h-screen">
+          {/* <div className="mb-10 flex-1"> */}
+          <div className="mb-10">
             <header className="my-5">
               <h1 className="text-xl font-bold">
                 <Link href="/">yn2011&apos;s blog</Link>
@@ -42,7 +43,7 @@ export default function RootLayout({
             </header>
             {children}
           </div>
-          <footer className="bg-gray-700 mx-[calc(50%_-_50vw)] px-[calc(50vw_-_50%)] pt-10 pb-5">
+          <footer className="bg-gray-700 mx-[calc(50%_-_50vw)] px-[calc(50vw_-_50%)] pt-10 pb-5 mt-auto">
             <nav className="mb-5">
               <ul>
                 <li className="mb-3">
