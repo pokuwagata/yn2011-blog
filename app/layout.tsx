@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="bg-gray-800 text-white">
-        <div className="mx-auto max-w-[960px] px-4 flex flex-col min-h-screen">
+        <div className="mx-auto flex min-h-screen max-w-[960px] flex-col px-4">
           {/* <div className="mb-10 flex-1"> */}
           <div className="mb-10">
             <header className="my-5">
@@ -43,16 +43,16 @@ export default function RootLayout({
             </header>
             {children}
           </div>
-          <footer className="bg-gray-700 mx-[calc(50%_-_50vw)] px-[calc(50vw_-_50%)] pt-10 pb-5 mt-auto">
+          <footer className="mx-[calc(50%_-_50vw)] mt-auto bg-gray-700 px-[calc(50vw_-_50%)] pb-5 pt-10">
             <nav className="mb-5">
               <ul>
                 <li className="mb-3">
                   <p className="mb-1">
-                    <Link href="/" className="underline text-lg ">
+                    <Link href="/" className="text-lg underline ">
                       yn2011&apos;s blog
                     </Link>
                   </p>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-sm text-gray-400">
                     yn2011 の技術ブログです。
                   </p>
                 </li>
@@ -63,7 +63,7 @@ export default function RootLayout({
                 </li>
               </ul>
             </nav>
-            <p className="text-gray-400 text-xs text-center">© 2023 yn2011</p>
+            <p className="text-center text-xs text-gray-400">© 2023 yn2011</p>
           </footer>
         </div>
       </body>

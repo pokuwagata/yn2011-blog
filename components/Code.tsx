@@ -15,7 +15,7 @@ export function Code({
   return (
     <>
       {fileName && (
-        <span className="bg-slate-600 px-3 py-1 rounded-t">{fileName}</span>
+        <span className="rounded-t bg-slate-600 px-3 py-1">{fileName}</span>
       )}
       <SyntaxHighlighter language={lang} style={ocean}>
         {code}
