@@ -34,9 +34,8 @@ export default function RootLayout({
     <html lang="ja">
       <body className="bg-gray-800 text-white">
         <div className="mx-auto flex min-h-screen max-w-[960px] flex-col px-4">
-          {/* <div className="mb-10 flex-1"> */}
           <div className="mb-10">
-            <header className="my-5">
+            <header className="mb-9 mt-3">
               <h1 className="text-xl font-bold">
                 <Link href="/">yn2011&apos;s blog</Link>
               </h1>

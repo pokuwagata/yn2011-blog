@@ -1,7 +1,8 @@
 export const MDXCustomComponents = {
   h1: (props: React.ComponentProps<"h1">) => (
     <h1
-      className="mx-[calc(50%_-_50vw)] mb-6 mt-auto bg-gray-700 px-[calc(50vw_-_50%)] py-9 text-xl font-semibold leading-relaxed"
+      // className="mx-[calc(50%_-_50vw)] mb-6 mt-auto bg-gray-700 px-[calc(50vw_-_50%)] py-9 text-xl font-semibold leading-relaxed"
+      className="mb-6 mt-3 border-b-2 border-gray-700 pb-6 text-xl font-semibold leading-relaxed"
       {...props}
     />
   ),
