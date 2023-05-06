@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const MDXCustomComponents = {
   h1: (props: React.ComponentProps<"h1">) => (
     <h1
@@ -22,4 +24,7 @@ export const MDXCustomComponents = {
   a: (props: React.ComponentProps<"a">) => (
     <a className="text-pink-300 underline" {...props} />
   ),
+  // @ts-ignore
+  // eslint-disable-next-line
+  img: (props: React.ComponentProps<"img">) => <Image {...props} />,
 };

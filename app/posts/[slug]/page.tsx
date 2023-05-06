@@ -2,11 +2,11 @@ import { getFiles, getFile } from "@/lib/file";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { baseURL, siteName } from "@/app/const";
-import Image from "next/image";
 import { MDXCustomComponents } from "@/components/Mdx";
 import remarkGfm from "remark-gfm";
 import RehypeCodeTitles from "rehype-code-titles";
 import RehypePrettyCode from "rehype-pretty-code";
+import rehypeImageSize from "@/lib/imgSize";
 
 export function generateMetadata({ params }: any) {
   const slug = params.slug;
@@ -43,7 +43,6 @@ export async function generateStaticParams() {
 }
 
 const components = {
-  Image,
   ...MDXCustomComponents,
 };
 
@@ -69,6 +68,7 @@ export default function Page({ params }: any) {
           mdxOptions: {
             remarkPlugins: [remarkGfm],
             rehypePlugins: [
+              rehypeImageSize,
               [
                 RehypeCodeTitles,
                 {
