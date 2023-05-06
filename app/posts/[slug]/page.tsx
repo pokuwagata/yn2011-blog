@@ -3,7 +3,6 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { baseURL, siteName } from "@/app/const";
 import Image from "next/image";
-import { Code } from "@/components/Code";
 import { MDXCustomComponents } from "@/components/Mdx";
 import remarkGfm from "remark-gfm";
 import RehypeCodeTitles from "rehype-code-titles";
@@ -45,7 +44,6 @@ export async function generateStaticParams() {
 
 const components = {
   Image,
-  Code,
   ...MDXCustomComponents,
 };
 
