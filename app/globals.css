@@ -2,21 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+.footnotes {
+  @apply mt-10 text-sm;
+}
+
 @layer base {
   li > ul {
     @apply pl-6;
   }
+  ol {
+    @apply ml-2 list-decimal;
+  }
+
   img {
     @apply my-6;
   }
+
   table {
     @apply table-auto border-collapse border border-gray-500;
   }
+
   thead {
     @apply bg-gray-700;
   }
+
   th,
   td {
     @apply border border-gray-500 px-4 py-2;
+  }
+
+  sup {
+    @apply -top-1 left-1;
   }
 }
