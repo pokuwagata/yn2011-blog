@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.rehype-code-title {
+  @apply -mb-3 mt-6 table rounded-t bg-slate-600 px-3 py-1 text-xs;
+}
+
+div[data-rehype-pretty-code-fragment] > pre {
+  @apply my-3 overflow-x-auto rounded-b-md px-2 py-4 text-sm;
+}
+
 .footnotes {
   @apply mt-10 text-sm;
 }

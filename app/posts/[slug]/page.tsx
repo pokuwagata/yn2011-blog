@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Code } from "@/components/Code";
 import { MDXCustomComponents } from "@/components/Mdx";
 import remarkGfm from "remark-gfm";
+import RehypeCodeTitles from "rehype-code-titles";
+import RehypePrettyCode from "rehype-pretty-code";
 
 export function generateMetadata({ params }: any) {
   const slug = params.slug;
@@ -68,7 +70,21 @@ export default function Page({ params }: any) {
         options={{
           mdxOptions: {
             remarkPlugins: [remarkGfm],
-            // rehypePlugins: [rehypeHighlight],
+            rehypePlugins: [
+              [
+                RehypeCodeTitles,
+                {
+                  titleSeparator: ":",
+                },
+              ],
+              [
+                RehypePrettyCode,
+                {
+                  theme: "nord",
+                  keepBackground: true,
+                },
+              ],
+            ],
           },
         }}
       />

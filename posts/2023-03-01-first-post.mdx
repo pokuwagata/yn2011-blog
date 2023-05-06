@@ -31,8 +31,8 @@ A note[^1]
 - [ ] to do
 - [x] done c | d |
 
-<Code lang="typescript" fileName="components/Code.tsx" code={
-`"use client";
+```tsx:components/Code.tsx
+"use client";
 
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { ocean } from "react-syntax-highlighter/dist/cjs/styles/hljs";
@@ -44,4 +44,4 @@ export function Code({ lang, children }: { lang: string; children: string }) {
     </SyntaxHighlighter>
   );
 }
-`} />
+```
