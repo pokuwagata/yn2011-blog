@@ -9,4 +9,14 @@
   img {
     @apply my-6;
   }
+  table {
+    @apply table-auto border-collapse border border-gray-500;
+  }
+  thead {
+    @apply bg-gray-700;
+  }
+  th,
+  td {
+    @apply border border-gray-500 px-4 py-2;
+  }
 }
