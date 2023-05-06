@@ -5,6 +5,7 @@ import { baseURL, siteName } from "@/app/const";
 import Image from "next/image";
 import { Code } from "@/components/Code";
 import { MDXCustomComponents } from "@/components/Mdx";
+import remarkGfm from "remark-gfm";
 
 export function generateMetadata({ params }: any) {
   const slug = params.slug;
@@ -61,7 +62,16 @@ export default function Page({ params }: any) {
         <time className="text-gray-400 ">{date}</time>
       </p>
       {/* @ts-ignore */}
-      <MDXRemote source={content} components={components} />
+      <MDXRemote
+        source={content}
+        components={components}
+        options={{
+          mdxOptions: {
+            remarkPlugins: [remarkGfm],
+            // rehypePlugins: [rehypeHighlight],
+          },
+        }}
+      />
     </>
   );
 }

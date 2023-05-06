@@ -1,18 +1,34 @@
 ---
-title: タイトル1
+title: Markdown Test
 date: 2023-03-01
 ---
 
 # タイトル
 
-## 見出し
+## Autolink literals
 
-本文
+www.example.com, https://example.com, and contact@example.com.
 
-| ヘッダー 1 | ヘッダー 2 |
-| ---------- | ---------- |
-| a          | b          |
-| c          | d          |
+## Footnote
+
+A note[^1]
+
+[^1]: Big note.
+
+## Strikethrough
+
+~one~ or ~~two~~ tildes.
+
+## Table
+
+| a   | b   |   c |  d  |
+| --- | :-- | --: | :-: |
+| 1   | a   |   x |  0  |
+
+## Tasklist
+
+- [ ] to do
+- [x] done c | d |
 
 <Code lang="typescript" fileName="components/Code.tsx" code={
 `"use client";
