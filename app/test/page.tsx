@@ -1,5 +1,5 @@
-import { OGP } from "@/components/OGP";
 import { siteName } from "../const";
+import { OGP } from "@/components/OGP";
 
 export default function Page({ params }: any) {
   const title =

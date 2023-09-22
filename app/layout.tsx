@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { ogpURL } from "./const";
 import { baseURL, siteName } from "@/app/const";
 import "@/app/globals.css";
-import { ogpURL } from "./const";
 
 export const metadata = {
   title: {
