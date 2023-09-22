@@ -1,4 +1,4 @@
-import { siteName } from "../const";
+import { siteName } from "@/app/const";
 import { OGP } from "@/components/OGP";
 
 export default function Page({ params }: any) {

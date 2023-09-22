@@ -1,10 +1,17 @@
 {
   "extends": "next/core-web-vitals",
+  "plugins": ["eslint-plugin-import-alias"],
   "rules": {
     "import/order": "error",
     "import/no-unused-modules": [
       "error",
       { "unusedExports": true, "ignoreExports": ["app"] }
+    ],
+    "import-alias/import-alias": [
+      "error",
+      {
+        "relativeDepth": 0
+      }
     ]
   }
 }

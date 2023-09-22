@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { ogpURL } from "./const";
-import { baseURL, siteName } from "@/app/const";
+import { baseURL, siteName, ogpURL } from "@/app/const";
 import "@/app/globals.css";
 
 export const metadata = {

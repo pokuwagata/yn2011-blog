@@ -1,6 +1,5 @@
-import { ogpURL } from "../const";
 import Contents from "./contents.mdx";
-import { baseURL, siteName } from "@/app/const";
+import { baseURL, siteName, ogpURL } from "@/app/const";
 
 const title = "このサイトについて";
 
