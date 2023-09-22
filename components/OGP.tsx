@@ -20,12 +20,19 @@ export function OGP({ title, siteName }: Props) {
           flexDirection: "column",
           justifyContent: "space-between",
           width: "100%",
-          padding: "1.5rem",
+          padding: "2.5rem",
           backgroundColor: "#fff",
           borderRadius: "1rem",
+          fontFamily: "Roboto",
         }}
       >
-        <h1 style={{ fontSize: "60px", fontWeight: "600", lineHeight: "120%" }}>
+        <h1
+          style={{
+            fontWeight: 600,
+            fontSize: "60px",
+            lineHeight: "120%",
+          }}
+        >
           {title}
         </h1>
         <p style={{ fontSize: "30px", marginLeft: "auto" }}>{siteName}</p>
