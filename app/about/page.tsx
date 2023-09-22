@@ -10,7 +10,7 @@ export const metadata = {
     url: `${baseURL}/about`,
     images: [
       {
-        url: `${baseURL}/api/og?title=${encodeURIComponent(title)}`,
+        url: `/api/og?title=${encodeURIComponent(title)}`,
         width: 1200,
         height: 630,
       },
