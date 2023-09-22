@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { baseURL, siteName } from "@/app/const";
 import "@/app/globals.css";
+import { ogpURL } from "./const";
 
 export const metadata = {
   title: {
@@ -13,8 +14,7 @@ export const metadata = {
     url: baseURL,
     images: [
       {
-        // url: `${baseURL}/api/og?title=${encodeURIComponent(siteName)}`,
-        url: `/api/ogp?title=${encodeURIComponent(siteName)}`,
+        url: ogpURL(siteName),
         width: 1200,
         height: 630,
       },

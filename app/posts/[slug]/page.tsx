@@ -1,7 +1,7 @@
 import { getFiles, getFile } from "@/lib/file";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
-import { baseURL, siteName } from "@/app/const";
+import { baseURL, ogpURL, siteName } from "@/app/const";
 import { MDXCustomComponents } from "@/components/Mdx";
 import remarkGfm from "remark-gfm";
 import RehypeCodeTitles from "rehype-code-titles";
@@ -21,7 +21,7 @@ export function generateMetadata({ params }: any) {
       siteName,
       images: [
         {
-          url: `/api/og?title=${encodeURIComponent(title)}`,
+          url: ogpURL(title),
           width: 1200,
           height: 630,
         },

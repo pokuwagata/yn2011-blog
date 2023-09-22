@@ -1,5 +1,6 @@
 import Contents from "./contents.mdx";
 import { baseURL, siteName } from "@/app/const";
+import { ogpURL } from "../const";
 
 const title = "このサイトについて";
 
@@ -10,7 +11,7 @@ export const metadata = {
     url: `${baseURL}/about`,
     images: [
       {
-        url: `/api/og?title=${encodeURIComponent(title)}`,
+        url: ogpURL(title),
         width: 1200,
         height: 630,
       },
