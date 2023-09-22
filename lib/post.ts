@@ -1,6 +1,6 @@
 import { getFiles, getFile, metadata } from "@/lib/file";
 
-export type Post = { slug: string; data: metadata; content: string };
+type Post = { slug: string; data: metadata; content: string };
 
 export function getPosts() {
   return getFiles()

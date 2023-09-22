@@ -1,6 +1,10 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "import/order": "error"
+    "import/order": "error",
+    "import/no-unused-modules": [
+      "error",
+      { "unusedExports": true, "ignoreExports": ["app"] }
+    ]
   }
 }
