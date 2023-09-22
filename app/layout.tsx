@@ -13,7 +13,8 @@ export const metadata = {
     url: baseURL,
     images: [
       {
-        url: `${baseURL}/api/og?title=${encodeURIComponent(siteName)}`,
+        // url: `${baseURL}/api/og?title=${encodeURIComponent(siteName)}`,
+        url: `/api/og?title=${encodeURIComponent(siteName)}`,
         width: 1200,
         height: 630,
       },
