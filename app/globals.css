@@ -10,11 +10,23 @@ div[data-rehype-pretty-code-fragment] > pre {
   @apply my-6 overflow-x-auto rounded-b-md px-2 py-4 text-sm;
 }
 
+code {
+  @apply rounded bg-gray-700 p-1 text-[0.8em] text-pink-400;
+}
+
+div[data-rehype-pretty-code-fragment] code {
+  background-color: #2e3440ff;
+  @apply text-sm;
+}
+
 .footnotes {
   @apply mt-10 text-sm;
 }
 
 @layer base {
+  h1 + h2 {
+    @apply mt-6 !important;
+  }
   li > ul {
     @apply pl-6;
   }
