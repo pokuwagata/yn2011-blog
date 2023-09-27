@@ -52,6 +52,6 @@ div[data-rehype-pretty-code-fragment] code {
   }
 
   sup {
-    @apply -top-1 left-1;
+    @apply -top-1 left-1 pr-3;
   }
 }
