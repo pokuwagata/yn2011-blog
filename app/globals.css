@@ -23,6 +23,10 @@ div[data-rehype-pretty-code-fragment] code {
   @apply mt-10 text-sm;
 }
 
+.footnotes p {
+  @apply text-sm;
+}
+
 @layer base {
   h1 + h2 {
     @apply mt-6 !important;
