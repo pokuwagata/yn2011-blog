@@ -8,5 +8,8 @@ export function getPosts() {
     .map((slug) => {
       return getFile(slug);
     })
-    .filter((post): post is Post => !!post.data && !!post.content);
+    .filter(
+      (post): post is Post =>
+        !!post.data && !!post.content && !!post.data.public
+    );
 }

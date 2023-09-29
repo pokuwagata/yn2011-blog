@@ -5,6 +5,7 @@ import matter from "gray-matter";
 export type metadata = {
   title: string;
   date: string;
+  public?: boolean;
 };
 
 const directoryPath = path.join(process.cwd(), "posts");
@@ -54,7 +55,11 @@ export function getFile(slug: string): {
 
     return {
       slug,
-      data: { title: data.title, date: data.date.toISOString().split("T")[0] },
+      data: {
+        title: data.title,
+        date: data.date.toISOString().split("T")[0],
+        public: data.public,
+      },
       content,
     };
   } catch (e) {

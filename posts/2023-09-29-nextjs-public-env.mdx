@@ -1,6 +1,7 @@
 ---
 title: Next.js の NEXT_PUBLIC_* という環境変数は何なのか
-date: 2023-09-27
+date: 2023-09-29
+public: true
 ---
 
 # Next.js の `NEXT_PUBLIC_*` という環境変数は何なのか
@@ -52,7 +53,7 @@ NEXT_PUBLIC_TEST=foo next dev
 `.env` ファイルで定義できる環境の種類に制限があり[^1]、 業務では `next.config.js` を利用して環境変数を定義することが多いので、
 `NEXT_PUBLIC_` prefix を利用することは少ない。
 
-`next.config.js` を利用しない場合は prefix を利用しないとブラウザから参照できない点に注意しよう。
+`next.config.js` を利用しない場合は prefix を利用しないとブラウザから参照できない点に注意したい。
 
 
 [^1]: [Environment Variables](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables#environment-variable-load-order)
