@@ -50,7 +50,7 @@ NEXT_PUBLIC_TEST=foo next dev
 <p>{process.env.NEXT_PUBLIC_TEST}</p>; // foo
 ```
 
-`.env` ファイルで定義できる環境の種類に制限があり[^1]、 業務では `next.config.js` を利用して環境変数を定義することが多いので、
+`.env` ファイルで定義できる環境の種類に制限があり、[^1]業務では `next.config.js` を利用して環境変数を定義することが多いので、
 `NEXT_PUBLIC_` prefix を利用することは少ない。
 
 `next.config.js` を利用しない場合は prefix を利用しないとブラウザから参照できない点に注意したい。
