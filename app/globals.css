@@ -32,7 +32,7 @@ div[data-rehype-pretty-code-fragment] code {
     @apply mt-6 !important;
   }
   li > ul {
-    @apply pl-6;
+    @apply mt-3 pl-6;
   }
   ol {
     @apply ml-2 list-decimal;

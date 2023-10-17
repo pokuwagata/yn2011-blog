@@ -1,0 +1,78 @@
+---
+title: 業務で MSW を使ってみた感想
+date: 2023-10-16
+public: true
+---
+
+# 業務で MSW を使ってみた感想
+
+## 背景
+
+業務で管理画面を開発した。自分はフロントエンドの開発メンバーとして参加した。
+
+始めにバックエンドチームと Open API で API の I/F を定義し、その後はフロントエンドとバックエンドでチームを分けて並行して開発を進めることになった。
+
+並行して開発を進めるので、フロントエンドチームが自由に API のモックを実装できた方が効率良く開発できそうだった。
+
+また、フロントエンドの自動テストも整備していきたいと思っていた。
+
+## 採用理由
+
+API のモックを実装するために、[MSW](https://mswjs.io/) を採用することにした。採用理由としては、モックの再利用が可能なことと他社事例が複数あったことが挙げられる。
+
+### 再利用可能
+
+MSW はブラウザ(Service Worker) と Node.js 環境の両方で動作する。
+なので、1 度 API のモックを実装すると、自動テスト（Unit テストや E2E テスト）から再利用できる。
+
+[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) の
+[Example](https://testing-library.com/docs/react-testing-library/example-intro/#full-example) では MSW によるテストの実装例が
+紹介されているし、`window.fetch` をモックするよりも MSW を使うことを推奨している。
+
+自動テストを実装する際にも API のモックは必要なので、開発時とテスト実装時でモックを再利用可能なことは大きな利点と考えられた。
+
+### 他社事例
+
+複数の企業から MSW を採用した開発事例が公表されている。
+
+- [Mock Service WorkerでAPIをモックして開発をスムーズに進められた話](https://tech.classi.jp/entry/2022/03/30/120000)
+- [OpenAPIとMSWを使ってユーザーのフォロー機能を実装した話](https://engineer.crowdworks.jp/entry/2023/02/28/120000)
+- [OpenAPI × Orval × MSW × Next.jsでのスキーマ駆動開発実践](https://techtekt.persol-career.co.jp/entry/tech/221215_01)
+
+概ね MSW に対して肯定的な内容であることと、業務での利用にも耐えられるライブラリであることが分かった。
+
+## 使ってみてどうだったか
+
+ここからは、実際に自分が MSW を利用した開発を行ってみて、出来たこと・出来なかったことを書く。
+
+### 出来たこと
+
+- フロントエンドチーム内で簡単に API のモックを実装できた
+  - エラーレスポンスの再現が簡単にできるので、異常系の実装が楽だった
+- Jest と React Testing Library を使った単体テストで、API のモックを再利用できた
+  - `server.use` で一時的にレスポンスを変更できるので、異常系のテストケース実装が楽だった
+
+### 出来なかったこと
+
+- 現時点では Next.js の App Router で動作しなかった（[Support Next.js 13 (App directory) #1644](https://github.com/mswjs/msw/issues/1644)）
+- `Location` ヘッダーを付与したレスポンスに対して Chrome がリダイレクト処理を行わない
+  - Service Worker の制約？
+- `Content-Type` ヘッダーの値が `text/csv` のレスポンスに対して、Chrome が CSV ダウンロードに失敗する
+- 現時点では `multipart/form-data` 形式の Request Body を取得できない（[Support "req.formData()" #1327](https://github.com/mswjs/msw/issues/1327)）
+  - Jest で画面から正しいリクエストが送信されているかをテストできない
+
+上記の Chrome が意図した動作をしない API については、Next.js の API Route の場合は正しく動作したのでこちらで代用した。
+
+MSW 固有の問題ではないが、フロントエンドの開発完了後に実際の API と結合テストを行った際に認証系のバグがいくつか発生した。認証が必要な API は常に正常レスポンスを返すのではなく、モック実装でも Cookie の値を参照して認証エラーを返すような実装にした方が事前にバグを発見できたはずなので、1 つ学びになった。
+
+## まとめ
+
+結論として、今回の管理画面開発では MSW を利用して良かったと思う。
+
+事前に OpenAPI を利用して API の I/F を決めておき、MSW で API のモックを実装することで、フロントエンドで必要な実装は全てフロントエンドチーム内で完結できるようになった。バックエンドチームとのコミュニケーションも有意義なものが多くなり、効率が良かったと感じる。
+
+MSW を利用して開発を終えた後に実際の API との結合テストした際には、認証系のバグは出てしまったが、レイヤー間での認識齟齬によるバグはほとんどなかった。
+
+また、Jest と React Testing Library を利用したコンポーネントのテスト実装では、開発に使用した API のモック実装を再利用できたため工数の短縮にも繋がった。
+
+

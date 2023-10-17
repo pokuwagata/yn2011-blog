@@ -24,7 +24,7 @@ export const MDXCustomComponents = {
     <li className="mb-1 ml-2" {...props} />
   ),
   a: (props: React.ComponentProps<"a">) => (
-    <a className="text-pink-300 underline" {...props} />
+    <a className="text-pink-300" {...props} />
   ),
   // @ts-ignore
   // eslint-disable-next-line

@@ -23,7 +23,7 @@ export default function Page() {
                 <time className="text-gray-400">{date}</time>
               </p>
               <Link
-                className="text-lg text-pink-300 underline"
+                className="text-lg text-pink-300"
                 href={`/posts/${encodeURIComponent(post.slug)}`}
               >
                 {title}
