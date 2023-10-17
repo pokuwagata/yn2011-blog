@@ -18,11 +18,9 @@ export const MDXCustomComponents = {
     <p className="mb-3 text-base leading-7" {...props} />
   ),
   ul: (props: React.ComponentProps<"ul">) => (
-    <ul className="mb-3 list-inside list-disc" {...props} />
+    <ul className="mb-3 list-disc pl-6" {...props} />
   ),
-  li: (props: React.ComponentProps<"li">) => (
-    <li className="mb-1 ml-2" {...props} />
-  ),
+  li: (props: React.ComponentProps<"li">) => <li className="mb-1" {...props} />,
   a: (props: React.ComponentProps<"a">) => (
     <a className="text-pink-300" {...props} />
   ),
