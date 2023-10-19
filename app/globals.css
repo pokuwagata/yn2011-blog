@@ -2,40 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.rehype-code-title {
-  @apply -mb-3 mt-6 table rounded-t bg-slate-600 px-3 py-1 text-xs;
-}
-
-div[data-rehype-pretty-code-fragment] > pre {
-  @apply my-6 overflow-x-auto rounded-b-md px-2 py-4 text-sm;
-}
-
-code {
-  @apply rounded bg-gray-700 p-1 text-[0.8em] text-pink-400;
-}
-
-div[data-rehype-pretty-code-fragment] code {
-  background-color: #2e3440ff;
-  @apply text-sm;
-}
-
-.footnotes {
-  @apply mt-10 text-sm;
-}
-
-.footnotes p {
-  @apply text-sm;
-}
-
 @layer base {
   h1 + h2 {
     @apply mt-6 !important;
   }
   li > ul {
     @apply mt-3 pl-6;
-  }
-  ol {
-    @apply ml-2 list-decimal;
   }
 
   img {
@@ -58,4 +30,40 @@ div[data-rehype-pretty-code-fragment] code {
   sup {
     @apply -left-1 -top-2 pr-1;
   }
+}
+
+code {
+  @apply rounded bg-gray-700 p-1 text-[0.8em] text-pink-400;
+}
+
+div[data-rehype-pretty-code-fragment] code {
+  background-color: #2e3440ff;
+  @apply text-sm;
+}
+
+.rehype-code-title {
+  @apply -mb-3 mt-6 table rounded-t bg-slate-600 px-3 py-1 text-xs;
+}
+
+div[data-rehype-pretty-code-fragment] > pre {
+  @apply my-6 overflow-x-auto rounded-b-md px-2 py-4 text-sm;
+}
+
+.footnotes {
+  @apply mt-10 text-sm;
+}
+
+.footnotes p {
+  @apply text-sm;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  word-wrap: normal;
+  border: 0;
 }
