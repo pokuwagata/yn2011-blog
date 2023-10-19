@@ -32,6 +32,14 @@ div[data-rehype-pretty-code-fragment] > pre {
   @apply text-sm;
 }
 
+[data-footnote-ref]::before {
+  content: "[";
+}
+
+[data-footnote-ref]::after {
+  content: "]";
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

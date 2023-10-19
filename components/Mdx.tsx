@@ -28,7 +28,7 @@ export const MDXCustomComponents = {
     <a className="text-pink-300" {...props} />
   ),
   sup: (props: React.ComponentProps<"sup">) => (
-    <sup className="-left-1 -top-2 pr-1" {...props} />
+    <sup className="-top-2 pr-1" {...props} />
   ),
   table: (props: React.ComponentProps<"table">) => (
     <table
