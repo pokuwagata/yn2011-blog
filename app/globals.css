@@ -9,31 +9,6 @@
   li > ul {
     @apply mt-3 pl-6;
   }
-
-  img {
-    @apply my-6;
-  }
-
-  table {
-    @apply table-auto border-collapse border border-gray-500;
-  }
-
-  thead {
-    @apply bg-gray-700;
-  }
-
-  th,
-  td {
-    @apply border border-gray-500 px-4 py-2;
-  }
-
-  sup {
-    @apply -left-1 -top-2 pr-1;
-  }
-}
-
-code {
-  @apply rounded bg-gray-700 p-1 text-[0.8em] text-pink-400;
 }
 
 div[data-rehype-pretty-code-fragment] code {
@@ -42,7 +17,7 @@ div[data-rehype-pretty-code-fragment] code {
 }
 
 .rehype-code-title {
-  @apply -mb-3 mt-6 table rounded-t bg-slate-600 px-3 py-1 text-xs;
+  @apply -mb-6 mt-6 table rounded-t bg-slate-600 px-3 py-1 text-xs;
 }
 
 div[data-rehype-pretty-code-fragment] > pre {

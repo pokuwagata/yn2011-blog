@@ -27,7 +27,34 @@ export const MDXCustomComponents = {
   a: (props: React.ComponentProps<"a">) => (
     <a className="text-pink-300" {...props} />
   ),
-  // @ts-ignore
-  // eslint-disable-next-line
-  img: (props: React.ComponentProps<"img">) => <Image {...props} />,
+  sup: (props: React.ComponentProps<"sup">) => (
+    <sup className="-left-1 -top-2 pr-1" {...props} />
+  ),
+  table: (props: React.ComponentProps<"table">) => (
+    <table
+      className="table-auto border-collapse border border-gray-500"
+      {...props}
+    />
+  ),
+  thead: (props: React.ComponentProps<"thead">) => (
+    <thead className="bg-gray-700" {...props} />
+  ),
+  th: (props: React.ComponentProps<"th">) => (
+    <th className="border border-gray-500 px-4 py-2" {...props} />
+  ),
+  td: (props: React.ComponentProps<"td">) => (
+    <td className="border border-gray-500 px-4 py-2" {...props} />
+  ),
+  code: (props: React.ComponentProps<"code">) => (
+    <code
+      className="rounded bg-gray-700 p-1 text-[0.8em] text-pink-400"
+      {...props}
+    />
+  ),
+
+  img: (props: React.ComponentProps<"img">) => (
+    // @ts-ignore
+    // eslint-disable-next-line
+    <Image className="my-6" {...props} />
+  ),
 };
