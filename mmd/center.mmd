@@ -1,0 +1,7 @@
+graph TD;
+    1([親要素に display:flex を指定できる])
+    1-- YES -->2[親要素に justify-content:center;\nalign-items:center;]
+    2-. OR .-3[margin: auto;]
+    1-- NO -->4([width or max-width と height or max-height を指定できる])
+    4-- YES -->5[position: absolute;\ntop: 0;\nleft: 0;\nright: 0;\nbottom: 0;\nmargin: auto;]
+    4-- NO -->6["position: absolute;\ntransform: translateX(-50%);\ntransform: translateY(-50%);\nleft:50%\ntop:50%"]

@@ -1,0 +1,6 @@
+graph TD;
+    1([親要素に height を指定できて、要素が 1 行のテキスト])-- YES -->2[line-height: x px;];
+    1-- NO -->3([親要素に display: flex を指定できる]);
+    3-- YES -->4[親要素に align-items:center;]
+    4-. OR .-5["margin-top: auto;\nmargin-bottom: auto;"]
+    3-- NO -->6["position: absolute;\ntransform: translateY(-50%);\ntop:50%"]
