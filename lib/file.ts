@@ -11,7 +11,7 @@ export type metadata = {
 const directoryPath = path.join(process.cwd(), "posts");
 
 function findFileTitle(fileName: string) {
-  return fileName.match(/^(.+)\.mdx$/);
+  return fileName.match(/^(.+)\.(mdx|md)$/);
 }
 
 export function getFiles() {
@@ -42,15 +42,23 @@ export function getFile(slug: string): {
   content?: string;
   error?: unknown;
 } {
-  const filePath = path.join(directoryPath, slug + ".mdx");
+  const fullPath = fs
+    .readdirSync(directoryPath)
+    .filter((fileName) => {
+      const match = findFileTitle(fileName);
+      if (match && match[1] === slug) return true;
+    })
+    .map((fileName) => {
+      return path.join(directoryPath, fileName);
+    })[0];
 
   try {
     const { data, content } = matter(
-      fs.readFileSync(filePath, { encoding: "utf8" })
+      fs.readFileSync(fullPath, { encoding: "utf8" })
     );
 
     if (!(data.title && data.date)) {
-      throw new Error(`${filePath} is wrong:` + JSON.stringify(data));
+      throw new Error(`${fullPath} is wrong:` + JSON.stringify(data));
     }
 
     return {
