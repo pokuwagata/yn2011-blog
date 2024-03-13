@@ -1,0 +1,17 @@
+{
+  "plugins": {},
+  "filters": {},
+  "rules": {
+    "textlint-rule-no-dropping-the-ra": true,
+    "sentence-length": {
+      "max": 120
+    },
+    "max-ten": {
+      "max": 3
+    },
+    "textlint-rule-ja-no-redundant-expression": true,
+    "ja-space-between-half-and-full-width": {
+      "space": ["alphabets", "numbers"]
+    }
+  }
+}
