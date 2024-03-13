@@ -15,7 +15,7 @@ public: true
 
 ## Next.js における環境変数の定義方法
 
-Next.js では以下の方法で環境変数を定義することができる。
+Next.js では以下の方法で環境変数を定義できる。
 
 - `.env` ファイル
 - ターミナル (例：`NEXT_PUBLIC_TEST=foo next dev`)
@@ -54,6 +54,5 @@ NEXT_PUBLIC_TEST=foo next dev
 `NEXT_PUBLIC_` prefix を利用することは少ない。
 
 `next.config.js` を利用しない場合は prefix を利用しないとブラウザから参照できない点に注意したい。
-
 
 [^1]: [Environment Variables](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables#environment-variable-load-order)

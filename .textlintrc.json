@@ -1,6 +1,8 @@
 {
   "plugins": {},
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "textlint-rule-no-dropping-the-ra": true,
     "sentence-length": {

@@ -10,7 +10,7 @@ public: true
 
 TypeScript では import 文で alias を使うことができる。
 
-例えば、`tsconfig.json` の [paths](https://www.typescriptlang.org/tsconfig#paths) で `@` を alias として、以下のように from 句を記述するように設定することができる。
+例えば、`tsconfig.json` の [paths](https://www.typescriptlang.org/tsconfig#paths) で `@` を alias として、以下のように from 句を記述するように設定できる。
 
 ```typescript
 // before
@@ -75,7 +75,11 @@ import Foo from './Foo';
 
 ちなみに、相対パスを使った import 文が生成される原因の 1 つに VSCode の Quick Fix がある。
 
-VSCode はデフォルトだと相対パスで import 文を生成するが、`settings.json` の `typescript.preferences.importModuleSpecifier` の値を `non-relative` に設定すると、プロジェクトの `tsconfig.json` の `paths` と `baseUrl` を元にして自動的にパスを生成することができる。
+{/* <!-- textlint-disable sentence-length --> */}
+
+VSCode はデフォルトだと相対パスで import 文を生成する。`settings.json` の `typescript.preferences.importModuleSpecifier` の値を `non-relative` に設定すると、プロジェクトの `tsconfig.json` の `paths` と `baseUrl` を元にして自動的にパスを生成できる。
+
+{/* <!-- textlint-enable sentence-length --> */}
 
 こうしておくだけでも、相対パスを使った import 文の混入を未然に防ぐことができる。
 
