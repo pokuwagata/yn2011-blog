@@ -16,7 +16,7 @@ function multiply(a, b = 1) {
 console.log(multiply(5)); // 5
 ```
 
-引数がオブジェクトの場合は [Destructuring 構文](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) を利用してプロパティ毎に初期値を定義できる。
+引数がオブジェクトの場合は [Destructuring 構文](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) を利用してプロパティごとに初期値を定義できる。
 
 ```javascript
 function a({ foo = true, bar } = {}) {

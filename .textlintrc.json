@@ -14,6 +14,13 @@
     "textlint-rule-ja-no-redundant-expression": true,
     "ja-space-between-half-and-full-width": {
       "space": ["alphabets", "numbers"]
+    },
+    "ja-keishikimeishi": {
+      "detection_hou_kata": false,
+      "detection_ue": false
+    },
+    "ja-no-mixed-period": {
+      "allowPeriodMarks": ["..."]
     }
   }
 }
