@@ -25,7 +25,7 @@ export const MDXCustomComponents = {
   ),
   li: (props: React.ComponentProps<"li">) => <li className="mb-1" {...props} />,
   a: (props: React.ComponentProps<"a">) => (
-    <a className="text-pink-300" {...props} />
+    <a className="text-pink-300" target="_blank" {...props} />
   ),
   sup: (props: React.ComponentProps<"sup">) => (
     <sup className="-top-2 pr-1" {...props} />
