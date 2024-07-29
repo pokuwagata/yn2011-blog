@@ -32,7 +32,7 @@ export const MDXCustomComponents = {
   ),
   table: (props: React.ComponentProps<"table">) => (
     <table
-      className="table-auto border-collapse border border-gray-500"
+      className="mb-6 table-auto border-collapse border border-gray-500"
       {...props}
     />
   ),
