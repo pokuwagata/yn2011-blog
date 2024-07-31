@@ -11,7 +11,7 @@
   }
 }
 
-div[data-rehype-pretty-code-fragment] code {
+figure[data-rehype-pretty-code-figure] code {
   background-color: #2e3440ff;
   @apply p-0 text-sm;
 }
@@ -20,7 +20,7 @@ div[data-rehype-pretty-code-fragment] code {
   @apply -mb-6 mt-6 table rounded-t bg-slate-600 px-3 py-1 text-xs;
 }
 
-div[data-rehype-pretty-code-fragment] > pre {
+figure[data-rehype-pretty-code-figure] > pre {
   @apply my-6 overflow-x-auto rounded-b-md px-3 py-4 text-sm;
 }
 
