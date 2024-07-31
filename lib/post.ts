@@ -9,6 +9,6 @@ export function getPosts() {
     })
     .filter(
       (post): post is Post =>
-        !!post.data && !!post.content && !!post.data.public
+        !!post.data && !!post.content && !!post.data.public,
     );
 }

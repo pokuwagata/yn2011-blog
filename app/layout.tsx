@@ -64,7 +64,9 @@ export default function RootLayout({
                   </li>
                 </ul>
               </nav>
-              <p className="text-center text-xs text-gray-400">© 2023 yn2011</p>
+              <p className="text-center text-xs text-gray-400">
+                © 2023 yn2011
+              </p>
             </footer>
           </div>
         </div>

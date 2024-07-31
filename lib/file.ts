@@ -54,7 +54,7 @@ export function getFile(slug: string): {
 
   try {
     const { data, content } = matter(
-      fs.readFileSync(fullPath, { encoding: "utf8" })
+      fs.readFileSync(fullPath, { encoding: "utf8" }),
     );
 
     if (!(data.title && data.date)) {
