@@ -3,6 +3,7 @@ import { baseURL, siteName, ogpURL } from "@/app/const";
 import "@/app/globals.css";
 
 export const metadata = {
+  metadataBase: new URL("https://blog.yn2011.com/"),
   title: {
     default: siteName,
     template: `%s | ${siteName}`,
