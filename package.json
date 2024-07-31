@@ -43,7 +43,7 @@
     "rehype-code-titles": "^1.2.0",
     "rehype-pretty-code": "^0.13.2",
     "remark-gfm": "^4.0.0",
-    "satori": "^0.10.7",
+    "satori": "^0.10.14",
     "sharp": "^0.33.4",
     "textlint": "^14.0.4",
     "textlint-filter-rule-comments": "^1.2.2",

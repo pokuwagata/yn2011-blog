@@ -12,6 +12,7 @@ export function OGP({ title, siteName }: Props) {
         height: "100%",
         padding: "2rem",
         backgroundColor: "#374151",
+        color: "#000"
       }}
     >
       <div
@@ -30,7 +31,6 @@ export function OGP({ title, siteName }: Props) {
           style={{
             fontWeight: 600,
             fontSize: "60px",
-            lineHeight: "120%",
           }}
         >
           {title}
