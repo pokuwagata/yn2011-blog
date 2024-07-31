@@ -76,6 +76,7 @@ export default function Page({ params }: any) {
                 },
               ],
               [
+                // @ts-ignore
                 RehypePrettyCode,
                 {
                   theme: "nord",
