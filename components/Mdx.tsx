@@ -47,7 +47,7 @@ export const MDXCustomComponents = {
   ),
   code: (props: React.ComponentProps<"code">) => (
     <code
-      className="rounded bg-gray-700  p-1 align-bottom text-[0.85em] text-pink-300"
+      className="rounded bg-gray-700 p-1 align-bottom text-[0.85em] text-pink-300"
       {...props}
     />
   ),

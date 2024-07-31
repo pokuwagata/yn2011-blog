@@ -12,7 +12,7 @@
 }
 
 figure[data-rehype-pretty-code-figure] code {
-  background-color: #2e3440ff;
+  background-color: #1a1b26; /* tokyo-night 背景色 */
   @apply p-0 text-sm;
 }
 
