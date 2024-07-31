@@ -13,7 +13,7 @@
 
 div[data-rehype-pretty-code-fragment] code {
   background-color: #2e3440ff;
-  @apply text-sm;
+  @apply p-0 text-sm;
 }
 
 .rehype-code-title {
