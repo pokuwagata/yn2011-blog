@@ -4,7 +4,7 @@ date: 2024-07-31
 public: true
 ---
 
-# MSW 2 を利用して React Component が送信する multipart/form-data 形式の Request Body をテストする
+# Jest と MSW 2 を利用して React Component が送信する multipart/form-data 形式の Request Body をテストする
 
 ## サンプルコード
 
@@ -12,7 +12,7 @@ public: true
 
 ## 前提
 
-```json
+```md
 "typescript": "^5",
 "next": "14.0.4",
 "react": "^18",
@@ -30,7 +30,7 @@ MSW 1 では モックした API に送信された `multipart/form-data` 形式
 
 ## MSW 2 を Jest 向けに設定する
 
-Jest から MSW 2 のサーバーを動作させるといくつかのエラーが発生した。[Frequent issues](https://mswjs.io/docs/migrations/1.x-to-2.x/#frequent-issues) に対処方法が記載されていた。
+Jest から MSW 2 のサーバーを動作させるといくつかのエラーが発生した。[Frequent issues](https://mswjs.io/docs/migrations/1.x-to-2.x/#frequent-issues) に記載の方法で解消できた。
 
 また、MSW 2 を Jest で動作させるためには undici のインストールが必要だが、undici v6 は動作しないため v5 を利用する必要がある。
 
@@ -66,12 +66,11 @@ export default function Home() {
 
   return (
     <main>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
           <label>
             name
             <input
-              id="name"
               name="name"
               type="text"
               onChange={(e) => {
@@ -84,7 +83,6 @@ export default function Home() {
           <label>
             age
             <input
-              id="age"
               name="age"
               type="number"
               onChange={(e) => {
