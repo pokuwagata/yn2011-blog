@@ -1,5 +1,5 @@
 ---
-title: MSW 2 を利用して React Component が送信する multipart/form-data 形式の Request Body をテストする
+title: Jest と MSW 2 を利用して React Component が送信する multipart/form-data 形式の Request Body をテストする
 date: 2024-07-31
 public: true
 ---
