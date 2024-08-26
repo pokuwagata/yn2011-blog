@@ -1,10 +1,10 @@
 ---
-title: Next.js Pages Router を使用して業務でフロントエンド開発をした際のディレクトリ構成
+title: フロントエンドのディレクトリ設計 (Next.js Pages Router)
 date: 2024-08-23
 public: true
 ---
 
-# Next.js Pages Router を使用して業務でフロントエンド開発をした際のディレクトリ構成
+# フロントエンドのディレクトリ設計 (Next.js Pages Router)
 
 2023 ~ 2024 年にかけて業務で新規プロダクトを開発した。その際に、フロントエンドではどのようなディレクトリ構成を採用したのかを書いていく。
 
