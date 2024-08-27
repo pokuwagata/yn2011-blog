@@ -12,7 +12,7 @@ public: true
 
 ## ErrorBoundary と Suspense
 
-`pages` からマウントする Component は ErrorBoundary と Suspense を利用して以下のように実装した。
+API リクエストをする Component は ErrorBoundary と Suspense を利用して以下のように実装した。
 
 ```tsx:features/detail/components/Detail.tsx
 export function Detail() {
@@ -25,7 +25,7 @@ export function Detail() {
         {!isSSR && ( // ⭐ 後述
           <ErrorBoundary FallbackComponent={DetailFallbackComponent}>
             <Suspense fallback={<Loading />}>
-              <Content />
+              <Content /> {/* ⭐ API リクエスト */}
             </Suspense>
           </ErrorBoundary>
         )}
@@ -64,13 +64,13 @@ API の設計として、エラーレスポンスにアプリケーション固�
 
 今回開発したプロダクトではページの大部分を API レスポンスによって CSR するため、API リクエスト中はローディングスピナー等の Fallback UI を表示する。`useState` や SWR の `isLoading` を使って命令的に実装できるが、Suspense を使うことでより React らしく宣言的に実装できる。
 
-API リクエストは SWR を使って実装している。Suspense を使うため SWR の `suspense` オプションをデフォルトで true にしている。
+Suspene を使った API リクエストは SWR を使って実装している。Suspense を使うため SWR の `suspense` オプションをデフォルトで true にしている。
 
 ちなみに、上記のコードで `isSSR` フラグによりクライアントサイドでのみ Component をマウントしているのは SWR の Conditional Fetching を使っているため。この点については[以前に記事を書いた](https://blog.yn2011.com/posts/2023-10-27-swr-request-hydration-errror)ので今回の記事では説明を割愛する。
 
 ## SWR
 
-API のリクエストとレスポンスの状態管理には SWR を利用している。SWR を使ってどのように API リクエストを実装しているかについて書く。
+API のリクエストには SWR を利用している。SWR を使ってどのように API リクエストを実装しているかについて書く。
 
 ### GET リクエスト
 
@@ -210,7 +210,7 @@ SWR の重複排除により複数の子 Component が、単に `useSWR` を呼�
 
 そもそも各 Component ごとに ErrorBoundary の実装が必要になる背景としては、認証エラーのレスポンスを Error として throw していることも関係している。未ログイン画面を描画する場合に各コンポーネントで上位の ErrorBoundary に throw するのではなく、自身を非表示にするために `<></>` をレンダリングする必要がある（ような UI だった）。したがって各 Component ごとに ErrorBoundary の実装が必要なことが多かった。そういう事情がなければ ErrorBoundary を多く実装することにはならないかもしれない。
 
-API リクエスト時に SWR の Suspense オプションを false にできるので、実装が単純なら ErrorBoundary を使わず Component 内の実装で完結させてしまう手もある。そうではなく、多少煩わしくてもコードベース全体でルールを統一するべきなのか、これは考えが分かれるかもしれない。
+`useSWR` Hook の呼び出しごとに、Suspense オプションを切り替えて false にできるので、実装が単純なら ErrorBoundary を使わず Component 内の実装で完結させてしまう手もある。そうではなく、多少煩わしくてもコードベース全体でルールを統一するべきなのか、これは考えが分かれるかもしれない。
 
 ## まとめ
 
