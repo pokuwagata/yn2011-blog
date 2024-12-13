@@ -6,10 +6,22 @@ public: true
 
 # react-error-boundary の fallbackRender と FallbackComponent の違い
 
+## updated
+
+2024/12/13
+
+本文を大幅に修正。
+
 ## react-error-bounadry
 
 React [ErrorBoundary](https://ja.react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) は Class Component で実装する必要がある。
 [react-error-bounadry](https://www.npmjs.com/package/react-error-boundary) は React の ErrorBoundary を Functional Component で実装するためのライブラリである。
+
+## 結論
+
+`fallbackRender` と `FallbackComponent` で出来ることに違いはない。
+
+`fallbackRender` は意図しない動作をすることがあるので `FallbackComponent` を使っておけばいい。
 
 ## fallbackRender
 
@@ -24,7 +36,7 @@ import { ErrorBoundary } from "react-error-boundary";
 ```
 
 上記の `<SomeComponent>` で例外を throw すると `fallbackRender` に渡された関数（`type '(props: FallbackProps) => ReactNode'`）を実行する。
-以下のように直接 Functional Component に Component を渡すと型定義エラーが発生する。
+以下のように直接 Functional Component に Component を渡すこともできる。
 
 ```tsx
 import { useEffect } from 'react';
@@ -39,12 +51,33 @@ function Fallback() {
 </ErrorBoundary>;
 ```
 
-なお、`<ErrorBoundary fallbackRender={<Fallback />}>` も同様に型定義エラーになる。
+ただし、上記の実装には制限があるので注意が必要なようだ。
 
-以下のように修正すると動作する。
+例えば、以下のように `FallbackProps` を受け取る `Fallback` コンポーネントを実装した場合、
+実行時エラーが発生し正常にレンダリングされなかった。
+`fallbackRender` に直接 `Fallback` を渡しても型定義エラーは発生しないので分かりにくい。
 
 ```tsx
-<ErrorBoundary fallbackRender={() => <Fallback />}>
+import { FallbackProps } from "react-error-boundary";
+
+export function Fallback({ error }: FallbackProps) {
+  ...
+}
+```
+
+また、以下のように Hook を実装した場合にも同様に実行時エラーが発生した。
+
+```tsx
+export function Fallback() {
+  useEffect(() => {
+    console.log("hi");
+  });
+```
+
+`fallbackRender` を利用して `FallbackProps` と Hook を動作させる場合には以下のように実装する。
+
+```tsx
+<ErrorBoundary fallbackRender={(props) => <Fallback {...props} />}>
 ```
 
 ## FallbackComponent
@@ -55,9 +88,9 @@ react-error-boundary には、`fallbackRender` とは別に `FallbackComponent` 
 
 ```tsx
 import { useEffect } from 'react';
-import { ErrorBoundary } from "react-error-boundary";
+import { ErrorBoundary, FallbackProps } from "react-error-boundary";
 
-function Fallback() {
+function Fallback({ error }: FallbackProps)) {
   useEffect(() => {
     console.log("hello");
   }, []);
@@ -70,12 +103,14 @@ function Fallback() {
 </ErrorBoundary>;
 ```
 
-`FallbackComponent` には Component を直接渡せるので React の Hook や Context を利用できる。
+`fallbackRender` とは異なり、`FallbackComponent` は上記の実装でも React の Hook や Context を利用できる。`FallbackProps` も上記の実装で扱うことができる。
 
-Props を渡すためには、以下のように実装する。
+したがって、`FallbackComponent` は `fallbackRender` より記述量が少なく済む。
+
+追加の Props を渡すためには、以下のように実装する。この場合は `fallbackRender` と同じ。
 
 ```tsx
-<ErrorBoundary FallbackComponent={() => <Fallback text={"hoge"} />}>
+<ErrorBoundary FallbackComponent={(props) => <Fallback {...props} text={"hoge"} />}>
 ```
 
 ## 経緯
@@ -86,9 +121,6 @@ Props を渡すためには、以下のように実装する。
 
 詳細は分からないが、Component に独自の Props を渡す上で、より適切な命名の Props として `fallbackRender` が実装されたという経緯のように解釈できた。
 
-## 使い分け
+## 結論 (再掲)
 
-react-error-boundary を使う上では以下のように使い分けることにしている。
-
-- react-error-boundary 由来の Props だけを fallback の Component に渡す→`FallbackComponent`
-- その他の Props も渡したい→`fallbackRender`
+命名を気にしなければ常に `FallbackComponent` を使うでも問題ないと思う。
