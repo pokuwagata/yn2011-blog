@@ -8,7 +8,8 @@ import { baseURL, ogpURL, siteName } from "@/app/const";
 import { getFiles, getFile } from "@/lib/file";
 import rehypeImageSize from "@/lib/imgSize";
 
-export function generateMetadata({ params }: any) {
+export async function generateMetadata(props: any) {
+  const params = await props.params;
   const slug = params.slug;
   const { data } = getFile(slug);
   const title = data?.title ?? "not found";
@@ -46,7 +47,8 @@ const components = {
   ...MDXCustomComponents,
 };
 
-export default function Page({ params }: any) {
+export default async function Page(props: any) {
+  const params = await props.params;
   const { data, content } = getFile(params.slug);
 
   if (!data || !content) {
