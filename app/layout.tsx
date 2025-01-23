@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="overflow-x-hidden overflow-y-scroll bg-gray-800 text-white">
-        <div className="mx-auto max-w-[960px] ">
+        <div className="mx-auto max-w-[760px] ">
           <div className="flex min-h-screen flex-col px-4 lg:px-0">
             <div className="mb-10">
               <header className="mb-9 mt-3">
