@@ -53,7 +53,7 @@ export const MDXCustomComponents = {
   ),
 
   img: (props: React.ComponentProps<"img">) => (
-    <a href={props.src}>
+    <a href={props.src as string}>
       {/* @ts-ignore */}
       <Image className="my-6" {...props} /> {/* eslint-disable-line*/}
     </a>
